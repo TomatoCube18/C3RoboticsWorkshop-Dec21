@@ -42,9 +42,9 @@ void space() { //space bar
 
 void morseCharacter(char input) {
   char _input = input;
-  _input = ((_input >= 'a') && (_input >= 'z')) ? _input - 32 : _input; //lower to upper case
+  _input = ((_input >= 'a') && (_input <= 'z')) ? _input - 32 : _input; //lower to upper case
   
-  switch (input) {
+  switch (_input) {
     case 'A':
       {dot();dash();shortspace();}break;  // A in morseCode
     case 'B':
