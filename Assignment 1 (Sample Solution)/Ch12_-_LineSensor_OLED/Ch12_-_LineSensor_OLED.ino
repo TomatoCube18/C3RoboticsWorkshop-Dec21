@@ -71,7 +71,8 @@ void setup() {
     oled.setFont(Adafruit5x7);
     oled.clear();
     oled.println("Hello NUS!");
-
+    oled.println("Line Module: ");     
+    
     delay(500);
 }
 
@@ -88,12 +89,10 @@ void loop() {
     strip.setPixelColor(2, strip.Color(0,0,(switch_3_state == LOW)? 255: 0));
     strip.show(); // This sends the updated pixel color to the hardware.
 
-    oled.clear();
-    Serial.print("Line Module: ");
     Serial.println(expanderData & 0x1F , BIN);  // Disregard the first 3 bits
-
-    oled.println("Line Module: ");      
-    oled.println(expanderData & 0x1F , BIN);   // Disregard the first 3 bits
+     
+    oled.setCursor(0, 2);
+    oled.print(expanderData & 0x1F , BIN); oled.println("      ");  // Disregard the first 3 bits
     delay(500);
     
 }
